@@ -1,0 +1,42 @@
+:root{
+    --cor-primaria--: rgb(49,49,49)
+}
+
+body{
+  background-color: rgb(110, 110, 110)
+}
+header{
+    background-color: var(--cor-primaria--);
+    display: flex;
+    align-items: left;
+    justify-content: center;
+}
+
+a, a:link{
+    text-decoration: none;
+    color: white;
+}
+
+p{
+    color: white;
+    margin-left: 10px;
+    padding-right: 5px;
+    text-align:center;
+  }
+
+.dropdown{
+    display:block;
+}
+
+.dropdown-content{
+    display:none;
+    position: absolute;
+    background-color: var(--cor-primaria--);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
