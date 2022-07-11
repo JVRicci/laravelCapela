@@ -1,0 +1,50 @@
+
+
+input[type="txt"],[type="date"], [type="select"]{
+    animation: exibe .5s;
+}
+
+
+label{
+    animation: exibe .3s;
+}
+
+hr{
+    border: 1px solid white;
+    box-shadow: 0 0 3px white ;
+    border-radius: 5px;
+}
+
+
+#dados-pessoais{
+    border: 0px;
+    box-shadow: 0 0 5px rgb(255, 255, 255) inset;
+    border-radius: 10px;
+    color: white;
+    background-color: var(--cor-primaria--);
+    padding: 3vh;
+    margin-top:2vh;
+    width:100vh;
+
+}
+
+.row{
+    padding-left: 5vh;
+    padding-right: 0vh;
+}
+
+.div-casamento{
+    display: none;
+}
+
+
+
+@keyframes exibe {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity:1;
+    }
+    
+}

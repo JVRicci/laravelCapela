@@ -19,12 +19,24 @@
         <a href="/">Inicio</a>
 
         <div class="dropdown">
+            <p>Catequese</p>
+            <div class="dropdown-content">
+                <a href="/">Cadastrar</a>
+                <a href="/">Consultar</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
             <p>Dizimo</p>
             <div class="dropdown-content">
                 <a href="/cad-dizimista">Cadastrar</a>
                 <a href="/cons-dizimista">Consultar</a>
             </div>
         </div>
+
+        <a href="/">Doações</a>
+        <a href="/">Eventos</a>
+        <a href="/">Contas</a>
 
     </header>
 
