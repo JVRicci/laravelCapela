@@ -47,12 +47,13 @@ class dizimoController extends Controller
 
     public function search(){
 
-        $dizimista = DB::table('dizimista')
-        ->join('endereco','endereco.id','=','dizimista.idEndereco')
-        ->join('contato', 'contato.id','=','dizimista.idContato')
-        ->select('dizimista.id as id', 'dizimista.nome as nome',
-        'endereco.endereco as endereco',
-        'contato.celular as celular')->get();
+        $dizimista = DB::table('dizimistas')
+        ->join('enderecos','enderecos.id','=','dizimistas.idEndereco')
+        ->join('contatos', 'contatos.id','=','dizimistas.idContato')
+        ->select('dizimistas.id as id', 'dizimistas.nome as nome',
+        'enderecos.endereco as endereco',
+        'contatos.telefone as telefone',
+        'contatos.celular as celular')->get();
 
         return view('components\dizimo\cons-dizimista', ['dizimista'=>$dizimista] );
     }

@@ -2,7 +2,12 @@
 @section('Title','Cadastrar Dizimista')
 @section("content")
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.min.js"></script> 
+
 <link rel="stylesheet" href="style/dizimo/cad-dizimista.css">
+
 
 <form method="POST" class="form-todo" action="{{ route ('registrar-dizimista')}}" >
 @csrf
@@ -148,7 +153,7 @@
 
 </form>
 
-<script type="text/javascript" src="js/dizimo/cad-dizimista-scr.js">
+<script  src="js/dizimo/cad-dizimista-scr.js">
 
 var estado = document.querySelector("#estado-civil");
 
@@ -156,9 +161,9 @@ carregaDiv();
 </script>
 
 
-<script type="text/javascript" src="js/cadastro-masks.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script  src="js/cadastro-masks.js"></script>
+
 
 
 @endsection

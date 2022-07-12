@@ -12,6 +12,7 @@
         "vite": "^2.9.11"
     },
     "dependencies": {
-        "jquery": "^3.6.0"
+        "jquery": "^3.6.0",
+        "jquery-mask-plugin": "^1.14.16"
     }
 }
