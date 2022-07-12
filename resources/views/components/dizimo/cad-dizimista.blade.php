@@ -4,10 +4,10 @@
 
 <link rel="stylesheet" href="style/dizimo/cad-dizimista.css">
 
-<form method="POST" class="form-todo" action="/dizimo" >
+<form method="POST" class="form-todo" action="{{ route ('registrar-dizimista')}}" >
+@csrf
 
-<div id="dados-pessoais" class="container">
-    
+<div id="dados-pessoais" class="container">    
 
     <h5 id="infos-titulo">Informações pessoais</h5>
 
@@ -35,7 +35,7 @@
  
         <div class="col-3">
             <label for="estadoCivil" class="form-label">Estado civil</label>
-            <select id="estado-civil" name="estadoCivil" class="form-control" required>
+            <select id="estadoCivil" name="estadoCivil" class="form-control" required>
                 <option value="nulo"></option>
                 <option value="solteiro">Solteiro</option>
                 <option value="casado">Casado</option>

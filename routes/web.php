@@ -17,4 +17,8 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::get('/cad-dizimista','dizimoController@create');
+Route::get('/cad-dizimista','dizimoController@cadastrar');
+
+Route::POST('/cons-dizimista', 'dizimoController@store')->name('registrar-dizimista');
+
+Route::get('/cons-dizimista','dizimoController@search');

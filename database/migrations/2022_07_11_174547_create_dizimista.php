@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dizimista', function (Blueprint $table) {
+        Schema::create('dizimistas', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('idContato')->unsigned();
+            $table->foreignId('idContato')->references('id')->on('contatos');
 
-            $table->integer('idEndereco')->unsigned();
-
+            $table->foreignId('idEndereco')->references('id')->on('enderecos');
+            
             $table->string('nome');
             $table->date('nascimento');
             $table->string('cpf');
@@ -27,9 +27,6 @@ return new class extends Migration
             $table->timestamps();
 
                 
-            $table->foreign('idContato')->references('id')->on('contato');
-
-            $table->foreign('idEndereco')->references('id')->on('endereco');
         });
     }
 
