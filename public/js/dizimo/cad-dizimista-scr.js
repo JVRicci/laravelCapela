@@ -8,6 +8,10 @@ function carregaDiv(){
     estado.addEventListener('change', ()=>{
         if(estado.value=="nulo" || estado.value=='solteiro'){
             divCasa.style.display = "none";
+            conjugeTxt.value = "Nenhum";
+            tipoCasamento.value="Nenhum"
+            
+
         }
         else{
             divCasa.style.display = "inline";

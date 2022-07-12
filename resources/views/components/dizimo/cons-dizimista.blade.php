@@ -32,7 +32,7 @@
                   <tr id="row" >
                       <td></td>
                       <td>{{$dizimista->id}}</td>
-                      <td ><a href="/">{{$dizimista->nome}}</a></td>
+                      <td ><a href="/cons-dizimos/id={{$dizimista->id}}">{{$dizimista->nome}}</a></td>
                       <td>{{$dizimista->endereco}}</td>
                       <td>{{$dizimista->telefone}}</td>
                       <td>{{$dizimista->celular}}</td>

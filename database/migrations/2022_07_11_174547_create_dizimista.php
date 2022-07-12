@@ -24,6 +24,10 @@ return new class extends Migration
             $table->date('nascimento');
             $table->string('cpf');
             $table->string('estadoCivil');
+            $table->string('tipoCasamento')->nullable()->default(NULL);
+            $table->string('conjuge')->nullable()->default(NULL);
+            $table->string('conjugeNascimento')->nullable()->default(NULL);
+            $table->string('ativo');
             $table->timestamps();
 
                 

@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class dizimista extends Model
 {
     use HasFactory;
-    protected $fillable = ['idEndereco', 'idContato', 'nome', 'nascimento', 'cpf', 'estadoCivil'];
+    protected $fillable = ['idEndereco', 'idContato', 'nome', 'nascimento', 'cpf', 'estadoCivil', 'tipoCasamento',
+    'conjuge','conjugeNascimento','ativo'];
 }
