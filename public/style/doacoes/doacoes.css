@@ -41,6 +41,7 @@ tbody tr:hover{
     display: flex;
 }
 
+
 .div-pesquisa{
     height: 10vh;
     width: 50vh;
@@ -58,7 +59,7 @@ tbody tr:hover{
 
     border-radius: 10px;
 
-    background-color: var(--cor-secundaria--);
+    background-color: var(--cor-primaria--);
     height:85vh;
     width: 145vh;
 

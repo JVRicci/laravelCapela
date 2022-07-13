@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <a href="/">Doações</a>
+        <a href="/doacoes">Doações</a>
         <a href="/">Eventos</a>
         <a href="/">Contas</a>
 
