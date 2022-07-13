@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class dizimo extends Model
 {
     use HasFactory;
-    protected $fillable =['dataRecebimento', 'qtdRecebida' ];
+    protected $fillable =['idDizimista', 'qtdRecebida' , 'dataRecebimento'];
 }

@@ -87,11 +87,11 @@ class dizimoController extends Controller
     public function store_dizimos(request $request){
 
         dizimo::create([
-            'idDizimista'=>$request->id,
-            'qtdRecebida'=>$request->qtdRecebida,
-            'dataRecebimento'=>$request->dataRecebimento,
+            'idDizimista'=>$request->idTxt,
+            'qtdRecebida'=>$request->valorTxt,
+            'dataRecebimento'=>$request->data,
         ]);
-        return redirect ('/cons-dizimos');
+        return back();
 
     }
 

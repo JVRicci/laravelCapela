@@ -48,8 +48,8 @@
                 @foreach ($dizimos as $dizimos)
                 <tr>
                     <td></td>
-                    <td>{{$dizimos.dataRecebimento}}</td>
-                    <td>{{$dizimos.qtdRecebida}}</td>
+                    <td>{{$dizimos->dataRecebimento}}</td>
+                    <td>{{$dizimos->qtdRecebida}}</td>
                 </tr>
                 @endforeach
             </tbody>
@@ -76,10 +76,11 @@
             </div>
             <div class="modal-body">
 
-                <form method="post">
+                <form method="post" action="{{route('registrar-dizimos')}}">
+                    @csrf
                     <div class="row">
                         <div class="col-1" id="idDiz" >
-                            <input type="txt" class="form-control" name="idTxt" value="query.id">
+                            <input type="txt" class="form-control" name="idTxt" value="{{request('id')}}">
                         </div>
                         <div class="col-5">
                             <input type="txt" class="form-control" name="valorTxt" onkeypress="$(this).mask('R$ 999.990,00')"
