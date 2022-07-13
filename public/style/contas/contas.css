@@ -13,25 +13,24 @@
     box-shadow: 0 0 5px rgb(255, 255, 255) inset;
 
     width: 138vh;
-    background: var(--cor-principal--);
+    background: var(--cor-primaria--);
 }
 
 .pesq-div{
     
-    padding:15px;
+    padding:0.1em;
     margin-bottom:30px;
 
     border-radius: 10px;
     box-shadow: 0 0 5px rgb(255, 255, 255) inset;
 
     width: 132vh;
-    height: 70px;
 
     background: var(--cor-secundaria--)
 }
 
 .modal-header, .modal-body, .modal-footer{
-    background: var(--cor-principal--);
+    background: var(--cor-primaria--);
     color: white;
 }
 

@@ -94,7 +94,7 @@ tbody tr:hover{
 
 #doacao-div{
 
-    background: var(--cor-principal--);
+    background: var(--cor-primaria--);
     margin-right: 5px;
     padding: 10px;
 
@@ -115,7 +115,7 @@ tbody tr:hover{
 #doador-modal-content {
     box-shadow: 0 0  3px rgb(255, 255, 255) inset;
     border: none;
-    background-color: var(--cor-principal--);
+    background-color: var(--cor-primaria--);
     color: white !important;
 
     width:50vh;
@@ -128,7 +128,7 @@ tbody tr:hover{
   #doacao-modal-content {
     box-shadow: 0 0 3px rgb(255, 255, 255) inset;
     border: none;
-    background-color: var(--cor-principal--);
+    background-color: var(--cor-primaria--);
     color: white !important;
 
     width:70vh;

@@ -16,7 +16,12 @@ return new class extends Migration
         Schema::create('doacoes', function (Blueprint $table) {
             //['idDoador','descricao', 'destino', 'dataRecebimento', 'ticoDoacao']
             $table->id();
-            $table->foreignId('idDoador')->references('doadores')->on('id');
+
+            $table->foreignId('idDoador')->references('id')->on('doadores');
+            $table->string('descricao');
+            $table->string('destino');
+            $table->date('dataRecebimento');
+            $table->string('tipoDoacao');
             
             $table->timestamps();
         });

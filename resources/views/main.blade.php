@@ -36,7 +36,7 @@
 
         <a href="/doacoes">Doações</a>
         <a href="/">Eventos</a>
-        <a href="/">Contas</a>
+        <a href="/cons-contas">Contas</a>
 
     </header>
 

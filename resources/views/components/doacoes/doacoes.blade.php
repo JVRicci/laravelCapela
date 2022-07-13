@@ -28,9 +28,9 @@
                     </thead>
                     <tbody>
                         @foreach ($doadores as $doadores)
-                        <tr onclick="carregaId({{$doadores->id}})"> <!--carregaId({id})-->         
+                        <tr onclick="carregaId({{$doadores->id}})">        
                             <td scope="row"><input type='radio' name="doadorSel{{$doadores->id}}" id="" value="{{$doadores->id}}"/></td>
-                            <!--doadorSel{id}            value="{id}"    -->     
+                             
                             <td scope="row">{{$doadores->id}}</td>
                             <td scope="row">{{$doadores->nome}}</td>
                         </tr>
@@ -55,15 +55,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        #each doacoes
-                        <tr id=""><!--{idDoador}-->
-                            <td id="idDoador" scope="row">idDoador</td>
-                            <td scope="row">descricao</td>
-                            <td scope="row">destino</td>
-                            <td scope="row">dataReceb</td>
-                            <td scope="row">tipoDoacao</td>
+                        @foreach ($doacoes as $doacoes)
+                        <tr id="{{$doacoes->idDoador}}">
+                            <td id="idDoador" scope="row">{{$doacoes->idDoador}}</td>
+                            <td scope="row">{{$doacoes->descricao}}</td>
+                            <td scope="row">{{$doacoes->destino}}</td>
+                            <td scope="row">{{$doacoes->dataRecebimento}}</td>
+                            <td scope="row">{{$doacoes->tipoDoacao}}</td>
                         </tr>
-                        /each
+                        @endforeach
                     </tbody>
                 </table>
 
@@ -134,7 +134,8 @@
         </button>
       </div>
       <div class="modal-body">
-            <form method="POST" action="/doacao">
+            <form method="POST" action="{{route('registrar-doacao')}}">
+                @csrf
             <div class="flex-container" id="formDiv">
                 <input type="text" id="doadorIdTxt" name="doadorIdTxt" required oninvalid="alert('Selecione um doador')"> </input>
                 <div class="row">
