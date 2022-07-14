@@ -112,9 +112,8 @@ class dizimoController extends Controller
 
     public function delete_dizimo(){
         $dizimo = request('id_dizimo');
-        //dizimo::where('id','=',$dizimo)->delete();
-        //return back();
-        return $dizimo;
+        dizimo::where('id','=',$dizimo)->delete();
+        return back();
     }
 
     

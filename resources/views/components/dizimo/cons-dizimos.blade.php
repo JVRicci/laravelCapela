@@ -49,7 +49,10 @@
                 <form action="/delete-dizimo" method="post">
                     @csrf
                     <tr>
-                        <td name='id_dizimo' value="{{$dizimos->id}}">{{$dizimos->id}}</td>
+                        <td >
+                            <input type="hidden" name='id_dizimo' value="{{$dizimos->id}}">
+                            {{$dizimos->id}}
+                        </td>
                         <td>{{$dizimos->dataRecebimento}}</td>
                         <td>{{$dizimos->qtdRecebida}}</td>
                         <td>
