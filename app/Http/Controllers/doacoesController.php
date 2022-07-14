@@ -15,8 +15,7 @@ class doacoesController extends Controller
         if($search){
 
             $doadores = doadores::where('nome','like','%'.$search.'%')->get();
-            $doacoes = doacoes::where('idDoador','=',$doadores)->get();
-            return $doacoes;
+            $doacoes = doacoes::get();
             
         }else{
             
