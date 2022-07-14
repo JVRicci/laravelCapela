@@ -12,6 +12,7 @@ Route::get('/', function () {  return redirect('/login');});
 
 Route::get('/cad-dizimista','dizimoController@index');
 Route::get('/doacoes','doacoesController@search');
+Route::get('/cons-catequese','catequeseController@index');
 
 
 Route::POST('/cons-dizimista', 'dizimoController@store')->name('registrar-dizimista');
@@ -23,6 +24,9 @@ Route::POST('/cad-conta', 'contasController@store_conta')->name('registrar-conta
 Route::get('/cons-dizimista','dizimoController@search');
 Route::get('/cons-dizimos/id={id}','dizimoController@search_dizimista');
 Route::get('/cons-contas', 'contasController@search');
+
+
+Route::POST('/delete-dizimo','dizimoController@delete_dizimo');
 
 Route::middleware([
     'auth:sanctum',

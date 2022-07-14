@@ -105,9 +105,9 @@
                     <label for="categoriaCombo">Categoria</label>
                         <select name="categoriaCombo" id="categoriaCombo" class="form-control" required>
                             <option value=""></option>
-                            <option value="aberto">Unico</option>
-                            <option value="vencido">Mensal</option>
-                            <option value="pago">Anual</option>
+                            <option value="Unico">Unico</option>
+                            <option value="Mensal">Mensal</option>
+                            <option value="Anual">Anual</option>
                         </select>
                     
                 </div>
@@ -148,9 +148,9 @@
                 <div class="col-4">
                     <label for="estadoCombo">Estado</label>
                     <select name="estadoCombo" id="estadoCombo" class="form-control">
-                        <option value="aberta">Aberta</option>
-                        <option value="vencida">Vencida</option>
-                        <option value="paga">Paga</option>
+                        <option value="Aberta">Aberta</option>
+                        <option value="Vencida">Vencida</option>
+                        <option value="Paga">Paga</option>
                     </select>
                 </div>
             </div>

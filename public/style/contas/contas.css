@@ -17,7 +17,7 @@
 }
 
 .pesq-div{
-    
+    background-color: var(--cor-terciaria--);
     padding:0.1em;
     margin-bottom:30px;
 
@@ -26,7 +26,6 @@
 
     width: 132vh;
 
-    background: var(--cor-secundaria--)
 }
 
 .modal-header, .modal-body, .modal-footer{

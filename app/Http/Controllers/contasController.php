@@ -14,7 +14,7 @@ class contasController extends Controller
         $responsavel = User::all();
         
         if($search){
-            $contas = contas::where('categoria','like','%'.$search.'%')->get();
+            $contas = contas::where('estado','like','%'.$search.'%')->get();
         }else if($search==""){
 
             $contas = contas::all();

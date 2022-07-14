@@ -40,17 +40,23 @@
 
         <table class="table table-dark" id="tabela-dizimo">
             <thead class="thead">
-                <th></th>
+                <th>ID</th>
                 <th>Data</th>
                 <th>Quantia</th>
             </thead>
             <tbody>
                 @foreach ($dizimos as $dizimos)
-                <tr>
-                    <td></td>
-                    <td>{{$dizimos->dataRecebimento}}</td>
-                    <td>{{$dizimos->qtdRecebida}}</td>
-                </tr>
+                <form action="/delete-dizimo" method="post">
+                    @csrf
+                    <tr>
+                        <td name='id_dizimo' value="{{$dizimos->id}}">{{$dizimos->id}}</td>
+                        <td>{{$dizimos->dataRecebimento}}</td>
+                        <td>{{$dizimos->qtdRecebida}}</td>
+                        <td>
+                            <button id="btn-excluir" class="btn btn-danger"> Excluir</button>
+                        </td>
+                    </tr>
+                </form>
                 @endforeach
             </tbody>
         </table>

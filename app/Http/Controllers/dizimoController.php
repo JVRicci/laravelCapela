@@ -12,7 +12,6 @@ class dizimoController extends Controller
 {
     public function index(){
 
-
         return view("\components\dizimo\cad-dizimista");
     
     }
@@ -109,6 +108,13 @@ class dizimoController extends Controller
         ]);
         return back();
 
+    }
+
+    public function delete_dizimo(){
+        $dizimo = request('id_dizimo');
+        //dizimo::where('id','=',$dizimo)->delete();
+        //return back();
+        return $dizimo;
     }
 
     

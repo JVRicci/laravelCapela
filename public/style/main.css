@@ -1,5 +1,7 @@
 :root{
-    --cor-primaria--: rgb(49,49,49)
+    --cor-primaria--: rgb(49,49,49);
+    --cor-secundaria--: rgb(110, 110, 110);
+    --cor-terciaria--: #343a40;
 }
 
 body{
