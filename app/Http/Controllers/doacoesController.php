@@ -29,7 +29,6 @@ class doacoesController extends Controller
 
     public function store_doacao(request $request){
         $doacao = doacoes::create([
-            //['idDoador','descricao', 'destino', 'dataRecebimento', 'tipoDoacao'];
             'idDoador'=> $request->doadorIdTxt,
             'descricao'=>$request->descricaoTxt,
             'destino'=>$request->destinoTxt,

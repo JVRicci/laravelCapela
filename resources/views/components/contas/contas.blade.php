@@ -9,16 +9,19 @@
 
         <dir class="row">
         <div class="col-lg">
-        <select name="estado" class="form-control" aria-label="Estado da Conta">
-            <option value="Todas">Todas</option>
-            <option value="Aberto">Em Aberto</option>
-            <option value="Vencido">Vencido</option>
-            <option value="Pago">Pago</option>
-        </select>
+            
+        <form action="/cons-contas" method="get">
+            <select name="estado" class="form-control" aria-label="Estado da Conta">
+                <option value="">Todas</option>
+                <option value="Aberto">Em Aberto</option>
+                <option value="Vencido">Vencido</option>
+                <option value="Pago">Pago</option>
+            </select>
         </div>
             <div class="col-sm">
             <button name="listConta" class="btn btn-dark" id="filtro-btn">Filtrar</button>
             </div>
+        </form>
 
 
             <div class="col-sm">
@@ -127,7 +130,9 @@
                     <label for="responsavelCombo">Responsavel: </label>
                     
                     <select name="responsavelCombo" id="responsavelCombo" class="form-control">
-                        <option value="nomeUser">nomeUser</option><!--{ {nomeUser} }-->
+                        @foreach ($responsavel as $responsavel)
+                            <option value="nomeUser">{{$responsavel->name}}</option><!--{ {nomeUser} }-->
+                        @endforeach
                     </select>
                 </div>
 

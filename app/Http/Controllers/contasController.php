@@ -3,17 +3,24 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\contas;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class contasController extends Controller
 {
     public function search(){
-        $search = request('pesquisaTxt');
+        $search = request('estado');
 
+        $responsavel = User::all();
         
+        if($search){
+            $contas = contas::where('categoria','like','%'.$search.'%')->get();
+        }else if($search==""){
+
             $contas = contas::all();
+        }
         
-        return view('components/contas/contas', ['contas'=>$contas]);
+        return view('components/contas/contas', ['contas'=>$contas], ['responsavel'=>$responsavel]);
     }
 
     public function store_conta(request $request){
@@ -25,7 +32,7 @@ class contasController extends Controller
             'categoria'=>$request->categoriaCombo,
             'fornecedor'=>$request->fonecedorTxt,
             'vencimento'=>$request->vencimentoDate,
-            'responsavel'=>'USER',//$request->responsavelCombo,
+            'responsavel'=>$request->responsavelCombo,//$request->responsavelCombo,
             'pagamento'=>$request->pagamentoDate,
             'formaPagamento'=>$request->pagamentoCombo,
             'estado'=>$request->estadoCombo

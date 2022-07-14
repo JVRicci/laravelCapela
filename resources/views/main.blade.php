@@ -38,6 +38,17 @@
         <a href="/">Eventos</a>
         <a href="/cons-contas">Contas</a>
 
+        @auth
+            <p id="nav-item">
+                <a href="/login">Meu perfil</a>
+                <form action="/logout" method="post">
+                    @csrf
+                <a href="/logout" id="nav-link" onclick="event.preventDefault();
+                    this.closest('form').submit();">Sair</a>
+                </form>
+            </p>
+        @endauth
+
     </header>
 
     @yield('content')
