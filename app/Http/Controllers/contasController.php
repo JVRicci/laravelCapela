@@ -8,7 +8,11 @@ use Illuminate\Http\Request;
 class contasController extends Controller
 {
     public function search(){
-        $contas = DB::table('contas')->get();
+        $search = request('pesquisaTxt');
+
+        
+            $contas = contas::all();
+        
         return view('components/contas/contas', ['contas'=>$contas]);
     }
 

@@ -10,7 +10,8 @@ use App\Models\dizimo;
 
 class dizimoController extends Controller
 {
-    public function cadastrar(){
+    public function index(){
+
 
         return view("\components\dizimo\cad-dizimista");
     
@@ -38,14 +39,29 @@ class dizimoController extends Controller
 
     public function search(){
 
-        $dizimista = DB::table('dizimistas')
-        ->join('enderecos','enderecos.id','=','dizimistas.idEndereco')
-        ->join('contatos', 'contatos.id','=','dizimistas.idContato')
-        ->select('dizimistas.id as id', 'dizimistas.nome as nome',
-        'enderecos.endereco as endereco',
-        'contatos.telefone as telefone',
-        'contatos.celular as celular')->get();
+        $search = request('pesquisaTxt');
 
+        if($search){
+            $dizimista = DB::table('dizimistas')
+            ->join('enderecos','enderecos.id','=','dizimistas.idEndereco')
+            ->join('contatos', 'contatos.id','=','dizimistas.idContato')
+            ->select('dizimistas.id as id', 'dizimistas.nome as nome',
+            'enderecos.endereco as endereco',
+            'contatos.telefone as telefone',
+            'contatos.celular as celular')->where('nome','like','%'.$search.'%')->get();
+            
+        }
+        else{
+            $dizimista = DB::table('dizimistas')
+            ->join('enderecos','enderecos.id','=','dizimistas.idEndereco')
+            ->join('contatos', 'contatos.id','=','dizimistas.idContato')
+            ->select('dizimistas.id as id', 'dizimistas.nome as nome',
+            'enderecos.endereco as endereco',
+            'contatos.telefone as telefone',
+            'contatos.celular as celular')->get();
+            
+        }
+        
         return view('components\dizimo\cons-dizimista', ['dizimista'=>$dizimista] );
     }
 

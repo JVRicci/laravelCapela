@@ -10,9 +10,21 @@ class doacoesController extends Controller
 {
     
     public function search(){
+        $search = request('pesquisaTxt');
 
-        $doadores = DB::table('doadores')->get();
-        $doacoes = DB::table('doacoes')->get();
+        if($search){
+
+            $doadores = doadores::where('nome','like','%'.$search.'%')->get();
+            $doacoes = doacoes::where('idDoador','=',$doadores)->get();
+            return $doacoes;
+            
+        }else{
+            
+            $doadores = doadores::all();
+            $doacoes = doacoes::get();
+        
+        }
+
         return view('\components\doacoes\doacoes', ['doadores'=> $doadores], ['doacoes'=>$doacoes]);
     }
 

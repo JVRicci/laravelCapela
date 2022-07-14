@@ -8,9 +8,9 @@
 
 <div id="div-principal" class="flex-container">
     <div class="div-pesquisa">
-        <input type="text" id="pesquisaTxt" class="pesquisa-text" placeholder="Pesquisar Doador" onchange="pesquisar(this.value)" 
-         onpaste="this.onchange();" oninput="this.onchange();" >
-        </input>
+        <form action="/doacoes" method="get">
+        <input type="text" id="pesquisaTxt" name="pesquisaTxt" class="pesquisa-text" placeholder="Pesquisar Doador"  >
+        </form>
       </div>
 
 

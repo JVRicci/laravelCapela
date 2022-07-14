@@ -4,8 +4,7 @@
     padding: 15px;
     box-shadow: 0 0 5px;
     display: grid;
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: center;
     background-color:  #343a40;
     width: 140vh;
 }

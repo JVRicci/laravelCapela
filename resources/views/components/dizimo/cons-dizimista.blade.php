@@ -6,12 +6,11 @@
 <link rel='stylesheet' type='text/css' href='style\table-style.css'>
 
 <div class="principal">
-<div class="div-pesquisa">
-        <input type="text" id="pesquisaTxt" class="pesquisa-text" placeholder="Pesquisar Doador" onchange="pesquisar(this.value)" 
-         onpaste="this.onchange();" oninput="this.onchange();"
-        value="DIGITAR pesquisaTxt">
+      <div class="div-pesquisa">
+      <form action="/cons-dizimista"  method='get'>
+        <input type="text" id="pesquisaTxt" name="pesquisaTxt" class="pesquisa-text" placeholder="Pesquisar Doador" >
         
-        </input>
+      </form>
       </div>
 
       <div class="dizimista-div">

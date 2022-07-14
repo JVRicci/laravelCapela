@@ -10,7 +10,7 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::get('/cad-dizimista','dizimoController@cadastrar');
+Route::get('/cad-dizimista','dizimoController@index');
 Route::get('/doacoes','doacoesController@search');
 
 Route::POST('/cons-dizimista', 'dizimoController@store')->name('registrar-dizimista');
