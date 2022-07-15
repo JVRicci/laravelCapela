@@ -232,7 +232,7 @@
                         <div class="row">
                             <div class="col-5">
                                 <label for="tipoSel">Tipo</label>
-                                <select name="tipoSel" id="alterTipoSel" class="form-control" required>
+                                <select  id="alterTipoSel" name="alterTipoSel" class="form-control" required>
                                     <option name="NULL" value="null"></option>
                                     <option name="material" value="Material">Material</option>
                                     <option name="especie" value="Especie">Em Espécie</option>
@@ -249,7 +249,7 @@
                             <div class="col-5">
                                 
                                 <label for="destinoTxt">Destino</label>
-                                <select  class="form-control" id="alterDestinoTxt" name="destinoTxt" required >
+                                <select  class="form-control" id="alterDestinoTxt" name="alterDestinoTxt" required >
                                     <option name='comunidadeOpt' value="Comunidade">Comunidade</option>
                                     <option name='externoOpt' value="Externo">Externo</option>
                                 </select>

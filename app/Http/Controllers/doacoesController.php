@@ -64,7 +64,7 @@ class doacoesController extends Controller
             'dataRecebimento'=>$request->alterRecebimentoDate,
             'tipoDoacao'=>$request->alterTipoSel,
         ]);
-        return ([$doacao, $query]);
-        //return back();
+        //return ([$doacao, $query]);
+        return back();
     }
 }

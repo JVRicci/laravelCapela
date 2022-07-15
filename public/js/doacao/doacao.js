@@ -19,10 +19,10 @@ $(listaDoador).find('tr').each((index, tr)=>{
 function carregaAlterDoa(){
     event.preventDefault();
 
-    var descricao = $('#descricaoHd').val()
-    var destino = $('#destinoHd')
-    var dataRecebimento = $('#dataRecebimentoHd').val()
-    var tipo = $('#tipoDoacaoHd')
+    //var descricao = $('#descricaoHd').val()
+    //var destino = $('#destinoHd')
+    //var dataRecebimento = $('#dataRecebimentoHd').val()
+    //var tipo = $('#tipoDoacaoHd')
     var idDoac = $('#idDoacaoHd').val()
 
     $("#alterarDoacaoTitle").append(idDoac)
