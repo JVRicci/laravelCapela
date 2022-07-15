@@ -53,4 +53,18 @@ class doacoesController extends Controller
         return back();
 
     }
+
+    public function update_doacao(request $request){
+
+        $doacao = request('idDoacaoAlter');
+
+        $query = doacoes::where('id','=',$doacao)->update([
+            'descricao'=>$request->alterDescricaoTxt,
+            'destino'=>$request->alterDestinoTxt,
+            'dataRecebimento'=>$request->alterRecebimentoDate,
+            'tipoDoacao'=>$request->alterTipoSel,
+        ]);
+        return ([$doacao, $query]);
+        //return back();
+    }
 }

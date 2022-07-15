@@ -28,6 +28,8 @@ Route::get('/cons-contas', 'contasController@search');
 Route::POST('/delete-dizimo','dizimoController@delete_dizimo');
 Route::POST('/delete-doacao','doacoesController@delete_doacao');
 
+Route::POST('/atualiza-doacao','doacoesController@update_doacao');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

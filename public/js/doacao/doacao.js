@@ -16,6 +16,26 @@ $(listaDoador).find('tr').each((index, tr)=>{
 
 })
 
+function carregaAlterDoa(){
+    event.preventDefault();
+
+    var descricao = $('#descricaoHd').val()
+    var destino = $('#destinoHd')
+    var dataRecebimento = $('#dataRecebimentoHd').val()
+    var tipo = $('#tipoDoacaoHd')
+    var idDoac = $('#idDoacaoHd').val()
+
+    $("#alterarDoacaoTitle").append(idDoac)
+
+    $('#idDoacaoAlter').val(idDoac);
+
+    //$('#alterDescricaoTxt').val(descricao)
+    //$('#alterDestinoTxt').val(destino)
+    //$('#alterRecebimentoDate').val(dataRecebimento)
+    //$('#alterTipoDate').val(tipo)
+
+    
+}
 
 //função de pesquisa
 function pesquisar(elemento){
@@ -91,7 +111,7 @@ function carregaId(elemento){
      
 };
 
-function alterarDoacao(id){
-    event.preventDefault();
-    $("#alterarDoacaoTitle").append(id);
-}
+
+
+
+//alterarBtn.click()

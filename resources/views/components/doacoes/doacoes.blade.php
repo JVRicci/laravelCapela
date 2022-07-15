@@ -57,18 +57,34 @@
                     </thead>
                     <tbody>
                         @foreach ($doacoes as $doacoes)
-                        <tr id="{{$doacoes->idDoador}}" id="doacaoLinha" >
-                        <form  method="get" id="doacaoTbForm" action="/"><!-- method="get" action="/delete-doacao"-->
+                        <tr id="{{$doacoes->idDoador}}" id="doacaoLinha">
+                        <form  method="get" id="doacaoTbForm" action="/doacoes"><!-- method="get" action="/delete-doacao"-->
                             @csrf
-                            <input type="hidden" name="idDoacao" value='{{$doacoes->id}}' data-toggle="modal" data-target="#alter-doacao">
-                            
+                            <input type="hidden" name="idDoacao" id="idDoacaoHd" value='{{$doacoes->id}}' data-toggle="modal" data-target="#alter-doacao">
                             <td scope="row"> {{$doacoes->idDoador}}</td>
-                            <td scope="row">{{$doacoes->descricao}}</td>
-                            <td scope="row">{{$doacoes->destino}}</td>
-                            <td scope="row">{{$doacoes->dataRecebimento}}</td>
-                            <td scope="row">{{$doacoes->tipoDoacao}}</td>
-                            <td scope="row"><button class="btn btn-warning" id="alterarBtn" 
-                                data-toggle="modal" data-target="#alter-doacao" onclick="alterarDoacao({{$doacoes->id}})">
+
+                            <td scope="row" >
+                                <input type="hidden" name="descricao" id="descricaoHd" value='{{$doacoes->descricao}}' data-toggle="modal" data-target="#alter-doacao">
+                                {{$doacoes->descricao}}
+                            </td>
+
+                            <td scope="row" >
+                                <input type="hidden" name="destino" id="destinoHd" value='{{$doacoes->destino}}' data-toggle="modal" data-target="#alter-doacao">
+                                {{$doacoes->destino}}
+                            </td>
+
+                            <td scope="row" >
+                                <input type="hidden" name="dataRecebimento" id="recebimentoHd" value='{{$doacoes->dataRecebimento}}' data-toggle="modal" data-target="#alter-doacao">
+                                {{$doacoes->dataRecebimento}}
+                            </td>
+
+                            <td scope="row" >
+                                <input type="hidden" name="tipoDoacao" id="tipoDoacaoHd" value='{{$doacoes->tipoDoacao}}' data-toggle="modal" data-target="#alter-doacao">
+                                {{$doacoes->tipoDoacao}}
+                            </td>
+
+                            <td scope="row"><button class="btn btn-warning" id="alterarBtn" onclick="carregaAlterDoa()"
+                            data-toggle="modal" data-target="#alter-doacao" >
                              Alterar</button></td>
                             
                             <td scope="row"><button class="btn btn-danger" id="removerBtn" value="Remover" >Remover</button></td>
@@ -201,7 +217,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content" id="doacao-modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="alterarDoacaoTitle">Alterar doação: </h5>
+          <h5 class="modal-title" id="alterarDoacaoTitle">Alterar doação:  </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -209,14 +225,14 @@
         <div class="modal-body">
             
             <div class="container">
-                <form action="/alterar-doacao" method="post">
+                <form id="altera-doacaoForm"action="/atualiza-doacao" method="post">
                     @csrf
-                    <input type="hidden" name="idDoacaoAlter" id="idDoacaoAlter" >
+                    <input type="txt" name="idDoacaoAlter" id="idDoacaoAlter" >
                     <div class="flex-container" id="formDiv">
                         <div class="row">
                             <div class="col-5">
                                 <label for="tipoSel">Tipo</label>
-                                <select name="tipoSel" id="tipoSel" class="form-control" required>
+                                <select name="tipoSel" id="alterTipoSel" class="form-control" required>
                                     <option name="NULL" value="null"></option>
                                     <option name="material" value="Material">Material</option>
                                     <option name="especie" value="Especie">Em Espécie</option>
@@ -225,21 +241,22 @@
                             <div class="col-7">
                             
                             <label for="descricaoTxt">Descrição</label>
-                            <input type="text" class="form-control" id="descricaoTxt" name="descricaoTxt" placeholder="Descrição" required>
+                            <input type="text" class="form-control" id="alterDescricaoTxt" name="alterDescricaoTxt"
+                             placeholder="Descrição" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-5">
                                 
                                 <label for="destinoTxt">Destino</label>
-                                <select  class="form-control" id="destinoTxt" name="destinoTxt" required >
+                                <select  class="form-control" id="alterDestinoTxt" name="destinoTxt" required >
                                     <option name='comunidadeOpt' value="Comunidade">Comunidade</option>
                                     <option name='externoOpt' value="Externo">Externo</option>
                                 </select>
                             </div>
                             <div class="col-7">
                                 <label for="recebimentoDate">Recebimento</label>
-                                <input type="date" name="recebimentoDate" class="form-control" id="recebimentoDate" required>
+                                <input type="date" name="alterRecebimentoDate" class="form-control" id="alterRecebimentoDate" required>
                             </div>
         
                         </div>
@@ -256,7 +273,8 @@
     </div>
   </div>
 
-
-  <script src="js/doacao/doacao.js"> </script>
+  <script src="jquery-3.6.0.min.js"></script>
+  <script src="js/doacao/doacao.js">    
+  </script>
  
 @endsection
