@@ -29,7 +29,8 @@
                     <tbody>
                         @foreach ($doadores as $doadores)
                         <tr onclick="carregaId({{$doadores->id}})">        
-                            <td scope="row"><input type='radio' name="doadorSel{{$doadores->id}}" id="" value="{{$doadores->id}}"/></td>
+                            <td scope="row">
+                                <input type='radio' name="doadorSel{{$doadores->id}}" id="" value="{{$doadores->id}}"/></td>
                              
                             <td scope="row">{{$doadores->id}}</td>
                             <td scope="row">{{$doadores->nome}}</td>
@@ -56,13 +57,24 @@
                     </thead>
                     <tbody>
                         @foreach ($doacoes as $doacoes)
-                        <tr id="{{$doacoes->idDoador}}">
-                            <td id="idDoador" scope="row">{{$doacoes->idDoador}}</td>
+                        <tr id="{{$doacoes->idDoador}}" id="doacaoLinha" >
+                        <form  method="get" id="doacaoTbForm" action="/"><!-- method="get" action="/delete-doacao"-->
+                            @csrf
+                            <input type="hidden" name="idDoacao" value='{{$doacoes->id}}' data-toggle="modal" data-target="#alter-doacao">
+                            
+                            <td scope="row"> {{$doacoes->idDoador}}</td>
                             <td scope="row">{{$doacoes->descricao}}</td>
                             <td scope="row">{{$doacoes->destino}}</td>
                             <td scope="row">{{$doacoes->dataRecebimento}}</td>
                             <td scope="row">{{$doacoes->tipoDoacao}}</td>
+                            <td scope="row"><button class="btn btn-warning" id="alterarBtn" 
+                                data-toggle="modal" data-target="#alter-doacao" onclick="alterarDoacao({{$doacoes->id}})">
+                             Alterar</button></td>
+                            
+                            <td scope="row"><button class="btn btn-danger" id="removerBtn" value="Remover" >Remover</button></td>
+                        </form>
                         </tr>
+
                         @endforeach
                     </tbody>
                 </table>
@@ -183,6 +195,68 @@
   </div>
 </div>
 
-<script src="js/doacao/doacao.js"></script>
+<!-- Modal de alterar doacao -->
 
+  <div class="modal fade" id="alter-doacao" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" id="doacao-modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="alterarDoacaoTitle">Alterar doação: </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            
+            <div class="container">
+                <form action="/alterar-doacao" method="post">
+                    @csrf
+                    <input type="hidden" name="idDoacaoAlter" id="idDoacaoAlter" >
+                    <div class="flex-container" id="formDiv">
+                        <div class="row">
+                            <div class="col-5">
+                                <label for="tipoSel">Tipo</label>
+                                <select name="tipoSel" id="tipoSel" class="form-control" required>
+                                    <option name="NULL" value="null"></option>
+                                    <option name="material" value="Material">Material</option>
+                                    <option name="especie" value="Especie">Em Espécie</option>
+                                </select>
+                            </div>
+                            <div class="col-7">
+                            
+                            <label for="descricaoTxt">Descrição</label>
+                            <input type="text" class="form-control" id="descricaoTxt" name="descricaoTxt" placeholder="Descrição" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                
+                                <label for="destinoTxt">Destino</label>
+                                <select  class="form-control" id="destinoTxt" name="destinoTxt" required >
+                                    <option name='comunidadeOpt' value="Comunidade">Comunidade</option>
+                                    <option name='externoOpt' value="Externo">Externo</option>
+                                </select>
+                            </div>
+                            <div class="col-7">
+                                <label for="recebimentoDate">Recebimento</label>
+                                <input type="date" name="recebimentoDate" class="form-control" id="recebimentoDate" required>
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+                    
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-dark">Alterar</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="js/doacao/doacao.js"> </script>
+ 
 @endsection

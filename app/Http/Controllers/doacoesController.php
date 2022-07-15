@@ -45,4 +45,12 @@ class doacoesController extends Controller
 
         return back();
     }
+
+    public function delete_doacao(){
+
+        $doacao = request('idDoacao');
+        doacoes::where('id','=',$doacao)->delete();
+        return back();
+
+    }
 }

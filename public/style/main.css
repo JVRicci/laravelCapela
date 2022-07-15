@@ -10,9 +10,12 @@ body{
 header{
     background-color: var(--cor-primaria--);
     padding-top: 15px;
+    top: 0;
+    width:100%;
     display: flex;
     align-items: left;
     justify-content: center;
+
 }
 
 a, a:link{

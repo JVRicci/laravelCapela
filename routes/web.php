@@ -25,8 +25,8 @@ Route::get('/cons-dizimista','dizimoController@search');
 Route::get('/cons-dizimos/id={id}','dizimoController@search_dizimista');
 Route::get('/cons-contas', 'contasController@search');
 
-
 Route::POST('/delete-dizimo','dizimoController@delete_dizimo');
+Route::POST('/delete-doacao','doacoesController@delete_doacao');
 
 Route::middleware([
     'auth:sanctum',

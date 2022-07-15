@@ -1,7 +1,7 @@
 //carrega tabela doador
-const listaDoa = $('#doador-table tbody ');
+const listaDoa = $('#doador-table tbody');
 
-const listaDoador = $('#doador-table tbody ');
+const listaDoador = $('#doador-table tbody');
 
 var nomes = $('#doador-table tbody').text();
 
@@ -15,6 +15,7 @@ $(listaDoador).find('tr').each((index, tr)=>{
     "<td>"+[$(tr).find('td:eq(2)').html()]+"</td></tr>")
 
 })
+
 
 //função de pesquisa
 function pesquisar(elemento){
@@ -89,3 +90,8 @@ function carregaId(elemento){
 
      
 };
+
+function alterarDoacao(id){
+    event.preventDefault();
+    $("#alterarDoacaoTitle").append(id);
+}
