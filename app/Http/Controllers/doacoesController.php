@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\doadores;
 use App\Models\doacoes;
+use DateTime;
 
 class doacoesController extends Controller
 {
@@ -58,13 +59,15 @@ class doacoesController extends Controller
 
         $doacao = request('idDoacaoAlter');
 
-        $query = doacoes::where('id','=',$doacao)->update([
+        $dataReceb = $request->alterRecebimentoDate;
+         
+         doacoes::where('id','=',$doacao)->update([
             'descricao'=>$request->alterDescricaoTxt,
             'destino'=>$request->alterDestinoTxt,
-            'dataRecebimento'=>$request->alterRecebimentoDate,
+            'dataRecebimento'=>$dataReceb,
             'tipoDoacao'=>$request->alterTipoSel,
         ]);
-        //return ([$doacao, $query]);
+        
         return back();
     }
 }

@@ -1,5 +1,5 @@
 @extends('main')
-@section('title','Cadastrar')
+@section('title','Cadastro do Dizimista')
 @section('content')
 
 <link rel="stylesheet" href="../style/dizimo/perfil-dizimista.css">
@@ -7,15 +7,16 @@
 <div id="principal" class="container">
 
     <div class="row">
-    <div id="dados-dizimista">
+        
+    @foreach ($dizimista as $dizimista)
+    <div id="dados-dizimista" class="col-4">
 
-        @foreach ($dizimista as $dizimista)
             <h6> {{$dizimista->id}} - {{$dizimista->nomed}}</h6>
             <p>CPF: {{$dizimista->cpf}}</p>
             <p>Nascimento: {{$dizimista->nascimento}}</p>
             <p>Estado Civil: {{$dizimista->estadoCivil}}</p>
             <p>Tipo de Casamento: {{$dizimista->tipoCasamento}}</p>
-            <p>Conjuge:{{$dizimista->conjuge}} </p>
+            <p>Conjuge: {{$dizimista->conjuge}} </p>
             <p>Data de Nascimento: {{$dizimista->conjugeNascimento}}</p>
             <p>Ativo: {{$dizimista->ativo}}</p>
 
@@ -24,6 +25,7 @@
             <div id="conDiv">
             <p>Telefone: {{$dizimista->telefone}}</p>
             <p>Celular: {{$dizimista->celular}}</p>
+            <p>Celular: {{$dizimista->email}}</p>
             </div>
 
             <hr>
@@ -33,10 +35,18 @@
             <p>Bairro: {{$dizimista->bairro}}</p>
             <p>Cidade: {{$dizimista->cidade}}</p>
             </div>
-        @endforeach
+            
+    <a href="/atualiza-dizimista/id={{$dizimista->id}}">
+    <button  class="btn btn-warning" > 
+        Alterar
+    </button></a>
+            
     </div>
 
-    <div id="dados-dizimo">
+
+    @endforeach
+
+    <div id="dados-dizimo" class="col-6 ">
 
         <table class="table table-dark" id="tabela-dizimo">
             <thead class="thead">
@@ -71,6 +81,8 @@
     </div>
 </div>
 </div>
+
+@yield('content')
 
 <!--Modal de Verifica dizimo-->
 
@@ -111,6 +123,7 @@
     </div>
 
 <!--Fim do modal de cadastro-->
+
 
 
 <!--Imports de scripts-->

@@ -7,6 +7,8 @@ var nomes = $('#doador-table tbody').text();
 
 var tabelaFull= []
 
+
+
 $(listaDoador).find('tr').each((index, tr)=>{
 
     tabelaFull.push('<tr onclick="carregaId('+[$(tr).find('td:eq(1)').html()]
@@ -15,34 +17,16 @@ $(listaDoador).find('tr').each((index, tr)=>{
     "<td>"+[$(tr).find('td:eq(2)').html()]+"</td></tr>")
 
 })
-
-function carregaAlterDoa(){
+function carregaAlterDoa(elemento){
     event.preventDefault();
-
-    //var descricao = $('#descricaoHd').val()
-    //var destino = $('#destinoHd')
-    //var dataRecebimento = $('#dataRecebimentoHd').val()
-    //var tipo = $('#tipoDoacaoHd')
-    var idDoac = $('#idDoacaoHd').val()
-
-    $("#alterarDoacaoTitle").append(idDoac)
-
-    $('#idDoacaoAlter').val(idDoac);
-
-    //$('#alterDescricaoTxt').val(descricao)
-    //$('#alterDestinoTxt').val(destino)
-    //$('#alterRecebimentoDate').val(dataRecebimento)
-    //$('#alterTipoDate').val(tipo)
-
     
+    $('#idDoacaoAlter').val(elemento);
+
 }
+
 
 //função de pesquisa
 function pesquisar(elemento){
-
-    var valElemento = elemento
-
-    var nomes = $('#doador-table tbody').text();
     
     var result= []
 

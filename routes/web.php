@@ -14,6 +14,8 @@ Route::get('/cad-dizimista','dizimoController@index');
 Route::get('/doacoes','doacoesController@search');
 Route::get('/cons-catequese','catequeseController@index');
 
+Route::GET('/atualiza-dizimista/id={id}','dizimoController@atualiza_dizimista');
+
 
 Route::POST('/cons-dizimista', 'dizimoController@store')->name('registrar-dizimista');
 Route::POST('/cons-dizimos','dizimoController@store_dizimos')->name('registrar-dizimos');
@@ -29,6 +31,8 @@ Route::POST('/delete-dizimo','dizimoController@delete_dizimo');
 Route::POST('/delete-doacao','doacoesController@delete_doacao');
 
 Route::POST('/atualiza-doacao','doacoesController@update_doacao');
+Route::POST('/alterar-dizimista','dizimoController@update_dizimista');
+
 
 Route::middleware([
     'auth:sanctum',

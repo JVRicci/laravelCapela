@@ -131,9 +131,6 @@ tbody tr:hover{
     background-color: var(--cor-primaria--);
     color: white !important;
 
-    width:70vh;
-    height:50vh;
-
     justify-content: center;
   }
 

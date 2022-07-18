@@ -16,6 +16,31 @@ class dizimoController extends Controller
     
     }
 
+    public function update_dizimista(){
+        $id= request('id');
+
+        return redirect('cons-dizimos/id={$id}');
+    }
+
+    public function atualiza_dizimista(){
+        $id = request('id');
+
+        $dizimista = DB::table("dizimistas")
+        ->join('enderecos','enderecos.id', '=', 'dizimistas.idEndereco')
+        ->join('contatos', 'contatos.id', '=', 'dizimistas.idContato')
+        ->select('dizimistas.id as id', 'dizimistas.nome as nomed', 'dizimistas.cpf as cpf','dizimistas.nascimento as nascimento',
+        'dizimistas.estadoCivil as estadoCivil', 'dizimistas.tipoCasamento as tipoCasamento', 'dizimistas.conjuge as conjuge',
+        'dizimistas.conjugeNascimento as conjugeNascimento','dizimistas.ativo as ativo',
+        'contatos.telefone as telefone', 'contatos.celular as celular', 'contatos..email as email',
+        'enderecos.endereco as endereco', 'enderecos.cep as cep', 'enderecos.numero as numero', 'enderecos.cidade as cidade',
+        'enderecos.bairro as bairro', 'enderecos.uf as uf')->get()
+        ->where('id',$id);
+
+        $dizimos = DB::table("dizimos")->get()->where('idDizimista',$id);
+
+        return view ('\components\dizimo\alter-dizimista', ['dizimista'=>$dizimista ], ['dizimos'=>$dizimos]);
+    }
+
     public function search_dizimista(request $request){
         
         $id = request('id');
@@ -26,7 +51,7 @@ class dizimoController extends Controller
         ->select('dizimistas.id as id', 'dizimistas.nome as nomed', 'dizimistas.cpf as cpf','dizimistas.nascimento as nascimento',
         'dizimistas.estadoCivil as estadoCivil', 'dizimistas.tipoCasamento as tipoCasamento', 'dizimistas.conjuge as conjuge',
         'dizimistas.conjugeNascimento as conjugeNascimento','dizimistas.ativo as ativo',
-        'contatos.telefone as telefone', 'contatos.celular as celular',
+        'contatos.telefone as telefone', 'contatos.celular as celular', 'contatos..email as email',
         'enderecos.endereco as endereco', 'enderecos.cep as cep', 'enderecos.numero as numero', 'enderecos.cidade as cidade',
         'enderecos.bairro as bairro', 'enderecos.uf as uf')->get()
         ->where('id',$id);

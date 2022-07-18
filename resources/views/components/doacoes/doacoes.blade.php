@@ -2,6 +2,9 @@
 @section('title','Doações')
 @section('content')
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.min.js"></script> 
 <link rel="stylesheet" type="text/css" href="style\doacoes\doacoes.css">
 <link rel='stylesheet' type='text/css' href='style\pesquisa.css'>
 
@@ -83,7 +86,7 @@
                                 {{$doacoes->tipoDoacao}}
                             </td>
 
-                            <td scope="row"><button class="btn btn-warning" id="alterarBtn" onclick="carregaAlterDoa()"
+                            <td scope="row"><button class="btn btn-warning" id="alterarBtn" onclick="carregaAlterDoa({{$doacoes->id}})"
                             data-toggle="modal" data-target="#alter-doacao" >
                              Alterar</button></td>
                             
@@ -214,20 +217,22 @@
 <!-- Modal de alterar doacao -->
 
   <div class="modal fade" id="alter-doacao" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content" id="doacao-modal-content">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+      <div class="modal-content " id="doacao-modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="alterarDoacaoTitle">Alterar doação:  </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
+          
         </div>
+        
+          <form id="altera-doacaoForm"action="/atualiza-doacao" method="post">
         <div class="modal-body">
             
             <div class="container">
-                <form id="altera-doacaoForm"action="/atualiza-doacao" method="post">
                     @csrf
-                    <input type="txt" name="idDoacaoAlter" id="idDoacaoAlter" >
+                    <input type="hidden" name="idDoacaoAlter" id="idDoacaoAlter" >
                     <div class="flex-container" id="formDiv">
                         <div class="row">
                             <div class="col-5">
@@ -267,14 +272,16 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             <button type="submit" class="btn btn-dark">Alterar</button>
-        </form>
+        
         </div>
+        </form>
       </div>
     </div>
   </div>
 
   <script src="jquery-3.6.0.min.js"></script>
-  <script src="js/doacao/doacao.js">    
+  <script src="js/doacao/doacao.js"> </script>   
+  <script src="js/doacao/doacao-masks.js">    
   </script>
  
 @endsection
