@@ -11,13 +11,16 @@
 
 
 
-<form method="POST" class="form-todo" action="/alterar-dizimista" > <!-- -->
+@foreach($dizimista as $dizimista)
+<form method="POST" class="form-todo" action="/alterar-dizimista/id={{$dizimista->id}}" > 
 @csrf
 
 <div id="dados-pessoais" class="container">    
     <h2 align="center" >Atualizar Cadastro</h2>
+    <input type="hidden" name="idDizTxt" value="{{$dizimista->id}}">
+    <input type="hidden" name="idEndTxt" value="{{$dizimista->idend}}">
+    <input type="hidden" name="idContTxt" value="{{$dizimista->idcont}}">
 
-    @foreach($dizimista as $dizimista)
     <h5 id="infos-titulo">Informações pessoais</h5>
 
     <div class="row">
@@ -150,12 +153,13 @@
     <hr>
 
     <input name="cadastrar" type="submit" value="Cadastrar"  class="btn btn-secondary" id="cadastrar-btn"/>
-    @endforeach 
+    
 </div>
 
 <hr>
 
 </form>
+@endforeach 
 
 <script  src="../js/dizimo/cad-dizimista-scr.js">
 

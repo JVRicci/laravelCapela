@@ -31,7 +31,7 @@ Route::POST('/delete-dizimo','dizimoController@delete_dizimo');
 Route::POST('/delete-doacao','doacoesController@delete_doacao');
 
 Route::POST('/atualiza-doacao','doacoesController@update_doacao');
-Route::POST('/alterar-dizimista','dizimoController@update_dizimista');
+Route::POST('/alterar-dizimista/id={id}','dizimoController@update_dizimista');
 
 
 Route::middleware([
