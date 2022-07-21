@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('responsavels', function (Blueprint $table) {
+        Schema::create('catequistas', function (Blueprint $table) {
             $table->id();
-            $table->string('responsavel');
-            $table->date ('nascResponsavel');
-            $table->string('estadoCivil');
-            $table->string('tipoCasamento');
-            $table->string('padrinho');
-            $table->string('madrinha');
+            
+            $table->foreignId('idContato')->references('id')->on('contatos');
+            $table->foreignId('idEndereco')->references('id')->on('enderecos');
+
+            $table->integer('idTurma')->nullable()->default(NULL);
+            $table->string('nome');
+            $table->date('nascimento');
+            $table->string('ativo');
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('responsavel');
+        Schema::dropIfExists('catequista');
     }
 };

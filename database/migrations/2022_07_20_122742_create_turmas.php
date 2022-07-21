@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('responsavels', function (Blueprint $table) {
+        Schema::create('turmas', function (Blueprint $table) {
             $table->id();
-            $table->string('responsavel');
-            $table->date ('nascResponsavel');
-            $table->string('estadoCivil');
-            $table->string('tipoCasamento');
-            $table->string('padrinho');
-            $table->string('madrinha');
+            $table->integer('idCatequista');
+            $table->string('diaEncontro');
+            $table->string('formacao');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('responsavel');
+        Schema::dropIfExists('turmas');
     }
 };

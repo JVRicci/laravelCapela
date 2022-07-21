@@ -17,15 +17,15 @@
     
     @auth
     <header class="nav-list" id="headerItens">
-        
-        <a href="/">Inicio</a>
+        <nav class="navbar navbar-expand-lg fixed-top">
+        <p>
+            <a href="/">Inicio</a>
+        </p>
 
         <div class="dropdown">
-            <p>Catequese</p>
-            <div class="dropdown-content">
-                <a href="/">Cadastrar</a>
-                <a href="/cons-catequese">Consultar</a>
-            </div>
+            <p>
+                <a href="/cons-catequese">Catequese</a>
+            </p>
         </div>
 
         <div class="dropdown">
@@ -36,25 +36,35 @@
             </div>
         </div>
 
+        <p>
         <a href="/doacoes">Doações</a>
-        <a href="/">Eventos</a>
+        </p>
+        <p>
+            <a href="/">Eventos</a>
+        </p>
+        <p>
         <a href="/cons-contas">Contas</a>
 
             <p id="nav-item">
                 <!--<a href="/dashboard">Meu perfil</a>-->
                 <form action="/logout" method="post">
                     @csrf
+                <p>
                         <a href="/logout" id="nav-link" onclick="event.preventDefault();
                         this.closest('form').submit();">Sair</a>
+                </p>    
                 </form>
             </p>
+            </p>
         
-
+        </nav>
     </header>
 
     @yield('content')
 
     @endauth
+
+    
 
     <script href="{{ asset ('js/jquery-2.1.3.min.js') }}" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('responsavels', function (Blueprint $table) {
+        Schema::create('faltas', function (Blueprint $table) {
             $table->id();
-            $table->string('responsavel');
-            $table->date ('nascResponsavel');
-            $table->string('estadoCivil');
-            $table->string('tipoCasamento');
-            $table->string('padrinho');
-            $table->string('madrinha');
+            $table->integer('ifFalta')->nullable()->default(NULL);
+            $table->integer('faltasCatequese')->nullable()->default(NULL);
+            $table->integer('faltasMissa')->nullable()->default(NULL);
+            $table->string('estado')->nullable()->default(NULL);
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('responsavel');
+        Schema::dropIfExists('faltas');
     }
 };

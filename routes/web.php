@@ -15,6 +15,10 @@ Route::get('/doacoes','doacoesController@search');
 Route::get('/cons-catequese','catequeseController@index');
 
 Route::GET('/atualiza-dizimista/id={id}','dizimoController@atualiza_dizimista');
+ 
+Route::GET('/register', function(){
+    return view('auth/register');
+});
 
 
 Route::POST('/cons-dizimista', 'dizimoController@store')->name('registrar-dizimista');
@@ -22,6 +26,9 @@ Route::POST('/cons-dizimos','dizimoController@store_dizimos')->name('registrar-d
 Route::POST('/cad-doador', 'doacoesController@store_doador')->name('registrar-doador');
 Route::POST('/cad-doacao','doacoesController@store_doacao')->name('registrar-doacao');
 Route::POST('/cad-conta', 'contasController@store_conta')->name('registrar-conta');
+Route::post('/cad-catequisando','catequeseController@cad_catequizando')->name('registrar-catequizando');
+Route::post('/cad-catequista','catequeseController@cad_catequista')->name('registrar-catequista');
+Route::post('/cad-turmas','catequeseController@cad_turma')->name('registrar-turma');
 
 Route::get('/cons-dizimista','dizimoController@search');
 Route::get('/cons-dizimos/id={id}','dizimoController@search_dizimista');

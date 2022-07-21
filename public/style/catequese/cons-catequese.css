@@ -1,0 +1,32 @@
+hr{
+    background-color: white;
+}
+
+#pesquisa-div{
+    padding: 15px;
+
+    color: white;
+    background-color: var(--cor-primaria--);
+    border-radius: 10px;
+    box-shadow: 0 0 5px inset ;
+
+    width: 100%;
+}
+
+#tables-div{
+    background-color: var(--cor-primaria--);
+    border-radius:10px;
+    box-shadow: 0 0 5px inset white;
+
+    width: 125vh;
+    padding: 15px;    
+    overflow: hidden;
+}
+
+
+.modal-content {
+    background-color: var(--cor-primaria--);
+    color: white !important;
+}
+
+

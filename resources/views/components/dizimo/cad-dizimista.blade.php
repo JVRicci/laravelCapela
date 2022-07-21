@@ -160,8 +160,6 @@ var estado = document.querySelector("#estado-civil");
 carregaDiv();
 </script>
 
-
-
 <script  src="js/cadastro-masks.js"></script>
 
 
