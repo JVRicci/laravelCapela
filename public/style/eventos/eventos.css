@@ -30,7 +30,7 @@ overflow: hidden;
     margin-top: 15vh;
 
     border-radius:10px;
-    background: var(--cor-principal--);
+    background: var(--cor-primaria--);
 
     height:35vh;
     width: 35vh;
@@ -39,7 +39,7 @@ overflow: hidden;
 }
 
 .modal-content{
-    background: var(--cor-principal--);
+    background: var(--cor-primaria--);
 }
 
 #evento{
@@ -56,7 +56,7 @@ overflow: hidden;
     padding: 15px;
 
     border-radius:10px;
-    background: var(--cor-principal--);
+    background: var(--cor-primaria--);
 
 
     box-shadow: 0 0 10px white inset;
