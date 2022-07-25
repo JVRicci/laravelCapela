@@ -28,6 +28,59 @@ class catequeseController extends Controller
         return view('components/catequese/cons-catequese', ['catequizandos'=>$catequizandos, 'catequistas'=>$catequistas, 'turmas'=>$turmas],);
     }
 
+    public function cons_turma(){
+        $id = request('id');
+
+        $turma = DB::table('turmas')
+        ->join('catequistas', 'catequistas.id','=','turmas.idCatequista')
+        ->select('turmas.diaEncontro as diaEncontro','turmas.formacao as formacao',
+        'catequistas.nome as nome', 'catequistas.ativo as ativo')
+        ->where('turmas.id','=',$id)->get();
+
+        $catequizandos = DB::table('catequizandos')
+        ->select('catequizandos.id as id','catequizandos.nome as nome','catequizandos.ativo as ativo',
+        'catequizandos.faltaEncontro as faltaEncontro','catequizandos.faltaMissa as faltaMissa')
+        ->where('idTurma','=',$id)
+        ->get();
+        
+        
+        $catSemSala = DB::table('catequizandos')->
+        select('catequizandos.id as id','catequizandos.nome as nome')->where('idTurma','!=',$id)->get();
+
+        return view('components/catequese/cons-sala', ['turma'=>$turma, 'catequizandos'=>$catequizandos, 'catSemSala'=>$catSemSala]);
+        //return ($turma);
+    }
+
+    public function cad_catequizando_turma(request $request) {
+        $id = request('id');
+        
+        catequizandos::where('id',$request->catequizandoTxt)->
+        update(['idTurma'=>$request->idTxt]);
+        
+        return back();
+    }
+
+    public function cons_catequizando(){
+        $id = request('id');
+
+        $catequizando = DB::table('catequizandos')->
+        join('responsavels','responsavels.id','=','catequizandos.idResponsavel')->
+        join('enderecos','enderecos.id', '=','catequizandos.idEndereco')->
+        join('contatos','contatos.id','=','catequizandos.idContato')->
+        select('catequizandos.nome as nomec', 'catequizandos.nascimento as nascimentoc', 'catequizandos.faltas as faltas',
+        'catequizandos.ativo as ativo', 'catequizandos.turma as turma',
+        'responsavels.responsavel as nomer', 'responsavels.nascResponsavel as nascimentor', 'responsavels.tipoCasamento as casamento',
+        'responsavels.padrinho as padrinho', 'responsavels.madrinha as madrinha',
+        'contatos.telefone as telefone', 'contatos.celular as celular', 'contatos.email as email',
+        'enderecos.endereco as endereco', 'enderecos.cep as cep', 'enderecos.numero as numero', 'enderecos.cidade as cidade',
+        'enderecos.bairro as bairro', 'enderecos.uf as uf')->
+        where('catequizandos.id',$id)->get();
+
+        
+        return view('components/catequese/cons-catequizando',['catequizando'=>$catequizando]);
+        //return ($catequizando);
+    }
+
     public function cad_turma(request $request){
 
         turmas::create([
@@ -106,7 +159,7 @@ class catequeseController extends Controller
             'nascimento' => $request->nascimentoTxt,
             'faltas'=>null,
             'ativo'=> 'Ativo',
-            'turma'=>1,
+            'turma'=>0,
             'faltaEncontro'=>null,
             'faltaMissa'=>null
             

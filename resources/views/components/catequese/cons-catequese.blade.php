@@ -65,9 +65,13 @@
                     <tbody class="tbody">
                         
                         @foreach($turmas as $t)
+                        
                             <tr>
                                 <td>{{$t->id}}</td>
-                                <td>{{$t->nome}}</td>
+                                <td>
+                                    <a href="/cons-turma/id={{$t->id}}">{{$t->nome}}
+                                    </a>
+                                </td>
                                 <td>{{$t->diaEncontro}}</td>
                                 <td>{{$t->formacao}}</td>
                             </tr>
@@ -91,13 +95,15 @@
                         </tr>
                     </thead>
                     <tbody class="tbody">
+                        @foreach($catequizandos as $c)
                         <tr>
-                            @foreach($catequizandos as $c)
                             <td>{{$c->id}}</td>
-                            <td>{{$c->nome}}</td>
+                            <td>
+                                <a href="/cons-catequizando/id={{$c->id}}">{{$c->nome}}
+                                </a></td>
                             <td>{{$c->responsavel}}</td>
-                            @endforeach
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -107,7 +113,6 @@
         </div>
 
     </div>
-
 
 
 </div>

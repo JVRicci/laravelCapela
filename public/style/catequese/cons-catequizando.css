@@ -1,0 +1,10 @@
+#dados-cat-div{
+    padding: 1rem;
+    width: 20rem;
+
+    border-radius: 15px;
+    box-shadow: 0 0 5px inset white;
+
+    color:white;
+    background-color: var(--cor-primaria--);
+}
