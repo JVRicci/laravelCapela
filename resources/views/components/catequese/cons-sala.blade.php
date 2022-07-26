@@ -6,6 +6,7 @@
 <link rel='stylesheet' href='../style/catequese/cons-turma.css'>
 
 <div class="container">
+<!-- Inicio do layout-->
 
     <div class="row">
         <div class="col-4" id="dados-turma-div">
@@ -24,7 +25,7 @@
                     <td>{{$t->nome}}</td>
                 </tr>
                 <tr>
-                    <td>Ativo: </td>
+                    <td>Turma ativa: </td>
                     <td>{{$t->ativo}}</td>
                 </tr>
                 @endforeach
@@ -61,9 +62,12 @@
             <button class="btn btn-dark" data-toggle="modal" data-target="#cad-catequizando-modal">
                 Adcionar Catequizando
             </button>
+            <button class="btn btn-dark" data-toggle="modal" data-target="#cad-encontro-modal">Registrar encontro</button>
+        
         </div>
     </div>
 
+<!-- Fim da tela-->
 </div>
 
 
@@ -112,4 +116,61 @@
   </div>
 
 <!-- Fim do Modal de cad-catequizando-->
-@endsection
+
+<!-- Modal de cad-encontro-->
+<div class="modal fade" id="cad-encontro-modal" tabindex="-1" role="dialog" aria-labelledby="modal-cad-encontro" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h5 class="modal-title" id="encontro-title-modal">Registrar encontro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{route('registrar-encontro')}}" method="POST">
+        @csrf
+        <div class="modal-body">
+                <div id="dados-catequizando-div">
+                    <input type="hidden" name="turmaTxt" value="{{request('id')}}">
+                    <div class="row">
+                        <div class="col-10">
+                            <label for="nomeTxt">Descrição</label>
+                            <input type="text" class="form-control" name="descricaoTxt" placeholder="Nome" required>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-6">
+                        <!--Tabela para registro de faltas -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Faltas</td>
+                                </tr>
+                            </thead>
+                            @foreach($catequizandos as $c)
+                            <tr>
+                                <td>
+                                    <a href="/cons-catequizando/id={{$c->id}}">{{$c->nome}}
+                                    </a></td>
+                                <td><input type="checkbox" class="" name="presencaCheck[{{$c->id}}]" value="{{$c->id}}" id=""></td>
+                            </tr>
+                            @endforeach
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-secondary" value="Registrar" >
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+<!-- Modal de cad-encontro-->
+
+
+  @endsection

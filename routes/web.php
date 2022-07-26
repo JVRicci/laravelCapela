@@ -34,6 +34,7 @@ Route::post('/cad-catequista','catequeseController@cad_catequista')->name('regis
 Route::post('/cad-turmas','catequeseController@cad_turma')->name('registrar-turma');
 Route::POST('/cad-eventos', 'eventosController@cad_eventos')->name('registrar-eventos');
 Route::POST('/cad-cat-turma','catequeseController@cad_catequizando_turma')->name('registrar-cat-turma');
+Route::POST('/cad-encontro','catequeseController@cad_encontro')->name('registrar-encontro');
 
 Route::get('/cons-dizimista','dizimoController@search');
 Route::get('/cons-dizimos/id={id}','dizimoController@search_dizimista');

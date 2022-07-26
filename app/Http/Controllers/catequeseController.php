@@ -9,6 +9,7 @@ use App\Models\turmas;
 use App\Models\endereco;
 use App\Models\contato;
 use App\Models\responsavel;
+use App\Models\encontros;
 
 class catequeseController extends Controller
 {
@@ -26,6 +27,18 @@ class catequeseController extends Controller
         $catequistas = DB::table('catequistas')->get();
 
         return view('components/catequese/cons-catequese', ['catequizandos'=>$catequizandos, 'catequistas'=>$catequistas, 'turmas'=>$turmas],);
+    }
+
+    //consultas
+    public function cad_catequizando_turma(request $request) {
+        $id = request('id');
+        
+        catequizandos::where('id',$request->catequizandoTxt)->
+        update(['idTurma'=>$request->idTxt,
+        'faltaEncontro'=>0,
+        'faltaMissa'=>0]);
+        
+        return back();
     }
 
     public function cons_turma(){
@@ -51,15 +64,6 @@ class catequeseController extends Controller
         //return ($turma);
     }
 
-    public function cad_catequizando_turma(request $request) {
-        $id = request('id');
-        
-        catequizandos::where('id',$request->catequizandoTxt)->
-        update(['idTurma'=>$request->idTxt]);
-        
-        return back();
-    }
-
     public function cons_catequizando(){
         $id = request('id');
 
@@ -81,6 +85,7 @@ class catequeseController extends Controller
         //return ($catequizando);
     }
 
+    //Cadastros
     public function cad_turma(request $request){
 
         turmas::create([
@@ -157,14 +162,29 @@ class catequeseController extends Controller
             'idTurma'=>1,
             'nome'=>$request->nomeTxt,
             'nascimento' => $request->nascimentoTxt,
-            'faltas'=>null,
+            'faltas'=>0,
             'ativo'=> 'Ativo',
             'turma'=>0,
-            'faltaEncontro'=>null,
-            'faltaMissa'=>null
+            'faltaEncontro'=>0,
+            'faltaMissa'=>0
             
         ]);
 
+        return back();
+    }
+
+    public function cad_encontro(request $request){
+
+        encontros::create([
+            'idTurma'=>$request->turmaTxt,
+            'descricao'=>$request->descricaoTxt
+        ]);
+     
+        $presencas = $request->presencaCheck;
+        foreach ($presencas as $p){
+            catequizandos::where('id',$p)->increment('faltaEncontro');
+            
+        }
         return back();
     }
 }
