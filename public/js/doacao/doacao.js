@@ -71,7 +71,9 @@ function carregaId(elemento){
                         [$(tr).find('td:eq(1)').html()],
                         [$(tr).find('td:eq(2)').html()],
                         [$(tr).find('td:eq(3)').html()],
-                        [$(tr).find('td:eq(4)').html()]],)
+                        [$(tr).find('td:eq(4)').html()],
+                        [$(tr).find('td:eq(6)').html()],
+                        [$(tr).find('td:eq(6)').html()]],)
         
        
         if(doacaofull[index][0] == elemento){
@@ -80,7 +82,9 @@ function carregaId(elemento){
             "<td>"+[$(tr).find('td:eq(1)').html()]+"</td>"+
             "<td>"+[$(tr).find('td:eq(2)').html()]+"</td>"+
             "<td>"+[$(tr).find('td:eq(3)').html()]+"</td>"+
-            "<td>"+[$(tr).find('td:eq(4)').html()]+"</td></tr>")
+            "<td>"+[$(tr).find('td:eq(4)').html()]+"</td>"+
+            "<td>"+[$(tr).find('td:eq(5)').html()]+"</td>"+
+            "<td>"+[$(tr).find('td:eq(6)').html()]+"</td></tr>")
         }
      });
 

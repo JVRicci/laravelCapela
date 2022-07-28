@@ -11,35 +11,92 @@
     @foreach ($dizimista as $dizimista)
     <div id="dados-dizimista" class="col-4">
 
-            <h6> {{$dizimista->id}} - {{$dizimista->nomed}}</h6>
-            <p>CPF: {{$dizimista->cpf}}</p>
-            <p>Nascimento: {{$dizimista->nascimento}}</p>
-            <p>Estado Civil: {{$dizimista->estadoCivil}}</p>
-            <p>Tipo de Casamento: {{$dizimista->tipoCasamento}}</p>
-            <p>Conjuge: {{$dizimista->conjuge}} </p>
-            <p>Data de Nascimento: {{$dizimista->conjugeNascimento}}</p>
-            <p>Ativo: {{$dizimista->ativo}}</p>
+        <table>
+            <tr>
+                <td>
+                    <h6> {{$dizimista->id}} - {{$dizimista->nomed}} </h6>
+                    <hr>
+                </td>
+            </tr>
+            <tr>
+                <td> CPF: </td>
+                <td> {{$dizimista->cpf}}</td>
+            </tr>
+            <tr>
+                <td>Nascimento:</td>
+                <td> {{$dizimista->nascimento}}</td>
+            </tr>
+            <tr>
+                <td>Estado Civil: </td>
+                <td>{{$dizimista->estadoCivil}}</td>
+            </tr>
+            <tr>
+                <td>Tipo de Casamento:</td>
+                <td> {{$dizimista->tipoCasamento}}</td>
+                
+            </tr>
+            <tr>
+                <td>Conjuge:</td>
+                <td> {{$dizimista->conjuge}} </td>
+            
+            </tr>
+            <tr>
+                <td>Data de Nascimento: </td>
+                <td>{{$dizimista->conjugeNascimento}}</td>
+            </tr>
+            <tr>
+                <td> Ativo:</td>
+                <td>{{$dizimista->ativo}}</td>
+            </tr>
 
-            <hr>
             
             <div id="conDiv">
-            <p>Telefone: {{$dizimista->telefone}}</p>
-            <p>Celular: {{$dizimista->celular}}</p>
-            <p>Celular: {{$dizimista->email}}</p>
+                <tr>
+                    <td>
+                        <hr>
+                        <h6>Contato</h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Telefone:</td>
+                    <td> {{$dizimista->telefone}}</td>
+                </tr>
+                <tr>
+                    <td> Celular: </td>
+                    <td> {{$dizimista->celular}}</td>
+                </tr>
+                <tr>
+                    <td> Celular:</td>
+                    <td> {{$dizimista->email}}</td>
+                </tr>
+
+            <div id="endDiv">
+                <tr>
+                    <td><hr>
+                    <h6>Endereço</h6></td>
+                </tr>
+                <tr>
+                    <td>Endereço:</td>
+                    <td> {{$dizimista->endereco}}</td>
+                </tr>
+                <tr>
+                    <td> Número: </td>
+                    <td> {{$dizimista->numero}}</td>
+                </tr>
+                <tr>
+                    <td> Bairro: </td>
+                    <td> {{$dizimista->bairro}}</td>
+                </tr>
+                <tr>
+                    <td> Cidade:</td>
+                    <td> {{$dizimista->cidade}}</td>
+                </tr>
             </div>
 
-            <hr>
-            <div id="endDiv">
-            <p>Endereço: {{$dizimista->endereco}}</p>
-            <p>Número: {{$dizimista->numero}}</p>
-            <p>Bairro: {{$dizimista->bairro}}</p>
-            <p>Cidade: {{$dizimista->cidade}}</p>
-            </div>
+                
+
+        </table>
             
-    <a href="/atualiza-dizimista/id={{$dizimista->id}}">
-    <button  class="btn btn-warning" > 
-        Alterar
-    </button></a>
             
     </div>
 
@@ -53,6 +110,7 @@
                 <th>ID</th>
                 <th>Data</th>
                 <th>Quantia</th>
+                <th></th>
             </thead>
             <tbody>
                 @foreach ($dizimos as $dizimos)
@@ -77,6 +135,11 @@
         <button class="btn btn-dark" id="dizimo-btn" data-toggle="modal" data-target="#modal-dizimo" >
             Registrar Dizimo
         </button>
+        <a href="/atualiza-dizimista/id={{$dizimista->id}}">
+            <button  class="btn btn-warning" > 
+                Atualizar Dizimista
+            </button>
+        </a>
 
     </div>
 </div>

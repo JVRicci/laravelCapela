@@ -16,7 +16,7 @@
         <div class="row">
                 
                     <div class="col-4">
-                        <form action="/cons-catequese" method="get">
+                        <form action="{{Route('cons-turma-reg')}}" method="POSt">
                             @csrf
                             <select name="anoCatequeseCombo" class="form-control">
                                 <option value="">Selecionar ano</option>
@@ -310,7 +310,7 @@
 
                         <div class="col-2">
                             <label for="numeroTxt" class="form-label">Número</label>
-                            <input type="txt" name="numeroTxt" class="form-control" required>
+                            <input type="txt" name="numeroTxt" class="form-control"  placeholder="Nº"required>
                         </div>
 
                     </div>

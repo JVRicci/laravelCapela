@@ -24,6 +24,8 @@ tbody tr:hover{
 .div-pesquisa{
     height: 10vh;
     width: 50vh;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #doadorIdTxt{
@@ -40,7 +42,7 @@ tbody tr:hover{
 
     background-color: var(--cor-primaria--);
     height:85vh;
-    width: 165vh;
+    width: 60rem;
 
     padding:15px;
 
@@ -49,6 +51,8 @@ tbody tr:hover{
     margin-right: auto;
 
     justify-content: space-around;
+
+    overflow: hidden;
 }
 
 #doador-div{
@@ -58,10 +62,6 @@ tbody tr:hover{
     padding: 10px;
 
     border-radius: 10px;
-
-    height: 60vh;
-    width: 40vh;
-    
     box-shadow: 0 0 3px rgb(255, 255, 255) inset;
     
     overflow-y:scroll;
@@ -78,9 +78,6 @@ tbody tr:hover{
     padding: 10px;
 
     border-radius: 10px;
-
-    height: 60vh;
-    width: 100vh;
     
     box-shadow: 0 0 3px rgb(255, 255, 255) inset;
     

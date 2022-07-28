@@ -18,8 +18,10 @@ Route::get('/cons-turma/id={id}','catequeseController@cons_turma');
 Route::get('/cons-catequizando/id={id}','catequeseController@cons_catequizando');
 
 Route::GET('/atualiza-dizimista/id={id}','dizimoController@atualiza_dizimista');
+
+Route::POST('/cons-catequese','catequeseController@search_catequizandos')->name('cons-turma-reg');
  
-Route::GET('/register', function(){
+Route::GET('/registrar', function(){
     return view('auth/register');
 });
 

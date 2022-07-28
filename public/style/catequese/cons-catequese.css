@@ -20,7 +20,13 @@ hr{
 
     width: 125vh;
     padding: 15px;    
-    overflow: hidden;
+    overflow:hidden;
+}
+
+
+
+#tables-div button{
+    margin-left: 5rem;
 }
 
 

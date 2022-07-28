@@ -30,6 +30,9 @@
                 </tr>
                 @endforeach
             </table>
+            <button class="btn btn-dark" data-toggle="modal" data-target="#cons-encontro-modal">
+                Consultar Encontros
+            </button>
         </div>
 
         <div class="col-6" >
@@ -171,6 +174,51 @@
     </div>
   </div>
 <!-- Modal de cad-encontro-->
+
+<!-- Modal de cons-encontro-->
+<div class="modal fade" id="cons-encontro-modal" tabindex="-1" role="dialog" aria-labelledby="modal-cad-encontro" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h5 class="modal-title" id="encontro-title-modal">Consultar encontro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{route('registrar-encontro')}}" method="POST">
+        @csrf
+        <div class="modal-body">
+                
+            <div id="verificar-encontros">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <td>Descrição</td>
+                            <td>Data do Encontro</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($encontros as $e)
+                        <tr>
+                            <td>{{$e->descricao}}</td>
+                            <td>{{$e->diaEncontro}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-secondary" value="Registrar" >
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+<!-- Modal de cons-encontro-->
+
 
 
   @endsection

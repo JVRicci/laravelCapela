@@ -29,6 +29,28 @@ class catequeseController extends Controller
         return view('components/catequese/cons-catequese', ['catequizandos'=>$catequizandos, 'catequistas'=>$catequistas, 'turmas'=>$turmas],);
     }
 
+    //searchs
+    public function search_catequizandos(Request $request){
+        
+        $turmas = DB::table('turmas')
+        ->join('catequistas', 'catequistas.id','=','turmas.idCatequista')
+        ->select('turmas.id as id','turmas.diaEncontro as diaEncontro','turmas.formacao as formacao',
+        'catequistas.nome as nome', 'catequistas.ativo as ativo')
+        ->where('formacao','like','%'.$request->anoCatequeseCombo.'%')->get();
+
+        $catequizandos = DB::table('catequizandos')
+        ->join('responsavels', 'responsavels.id','=','catequizandos.idResponsavel')
+        ->select('catequizandos.id as id','catequizandos.nome as nome', 'responsavels.responsavel as responsavel')
+        ->get();
+        $catequistas = DB::table('catequistas')->get();
+
+        return view('components/catequese/cons-catequese', ['catequizandos'=>$catequizandos, 'catequistas'=>$catequistas, 'turmas'=>$turmas],);
+    
+
+        return back();
+    }
+
+
     //consultas
     public function cad_catequizando_turma(request $request) {
         $id = request('id');
@@ -55,12 +77,18 @@ class catequeseController extends Controller
         'catequizandos.faltaEncontro as faltaEncontro','catequizandos.faltaMissa as faltaMissa')
         ->where('idTurma','=',$id)
         ->get();
+
+        $encontros = DB::table('encontros')->
+        join('turmas','turmas.id','=','encontros.idTurma')->
+        select('encontros.descricao as descricao','encontros.created_at as diaEncontro')->
+        where('idTurma','=',$id)->get();
         
         
         $catSemSala = DB::table('catequizandos')->
         select('catequizandos.id as id','catequizandos.nome as nome')->where('idTurma','!=',$id)->get();
 
-        return view('components/catequese/cons-sala', ['turma'=>$turma, 'catequizandos'=>$catequizandos, 'catSemSala'=>$catSemSala]);
+        return view('components/catequese/cons-sala', ['turma'=>$turma, 'catequizandos'=>$catequizandos, 'catSemSala'=>$catSemSala,
+        'encontros'=>$encontros]);
         //return ($turma);
     }
 
@@ -85,6 +113,7 @@ class catequeseController extends Controller
         //return ($catequizando);
     }
 
+    
     //Cadastros
     public function cad_turma(request $request){
 

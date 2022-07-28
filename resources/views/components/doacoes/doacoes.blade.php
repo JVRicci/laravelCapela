@@ -45,7 +45,7 @@
             </div>
         </div>
         
-        <div class="col-2">
+        <div class="col-8">
             <div id="doacao-div">
                 
                 <table id="doacao-table" class="table table-dark">

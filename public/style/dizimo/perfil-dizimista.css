@@ -1,9 +1,12 @@
-body, html {height:100%; }
+body, html {height:100%;
+ }
 
 
-p, h6{
+div h6, button{
     color:white;
+    text-shadow:0 0 7px white;
 }
+
 
 #dados-dizimista p{
     font-size: 12px;
@@ -53,30 +56,42 @@ input [type="text"]{
     background: var(--cor-terciaria--);
     border-radius: 10px;
     box-shadow: 0 0px 7px inset rgb(190, 190, 190);
+    color:white;
 
     margin-top: 3vh;
     margin-left: 10vh;
     padding: 2vh;
-    padding-bottom: 0vh;
+    animation: surgir 0.5s;
+    overflow: scroll;
 
 }
 
 #tabela-dizimo{
     display:block;
-    width: 40vh;
+    width: 20rem;
     height: 73vh;
     margin-left: 10vh;
     margin-top: 3vh;
     border-radius: 10px;
     border: none;
     box-shadow: 0 0 7px inset;
+    animation: surgir 0.5s;
+    overflow: scroll;
 }
 
 #dizimo-btn{
     
-    margin-left: 25vh;
+    margin-left: 5rem;
 }
 
+@keyframes surgir{
+    from{
+        opacity:0;
+    }
+    tu{
+        opacity:1;
+    }
+}
 
 
 
